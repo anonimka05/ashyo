@@ -1,16 +1,19 @@
 "use client";
 import { instance } from "@/hooks/instance";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
-export const getCategories = () => {
-  const params = { page: 1, limit: 1000 };
-  const [data, setData] = useState([]);
+const GetCategories = (name?: string | null) => {
+  const params = { page: 1, limit: 1000, name: name ? name : null };
+  const { data: categories = [], isLoading } = useQuery({
+    queryKey: ["categories", name],
 
-  useEffect(() => {
-    instance()
-      .get("/category", { params })
-      .then((res) => setData(res.data.categories));
-  }, []);
+    queryFn: () =>
+      instance()
+        .get("category", { params })
+        .then((res) => res.data.categories),
+  });
 
-  return data;
+  return { categories, isLoading };
 };
+
+export default GetCategories;

@@ -1,3 +1,4 @@
+import { HeaderTopListType } from "@/types/HeaderType";
 import Lang from "./Lang";
 import { LocationIcon } from "@/icons";
 import { NavListType } from "@/types/NavListType";
@@ -36,7 +37,7 @@ const HeaderTop = () => {
     <div className="bg-[#EBEFF3] hidden sm:block py-[11px]">
       <div className="flex justify-between items-center containers ">
         <div className="flex items-center  gap-[28px]">
-          {navList.map((item: NavListType) => (
+          {navList.map((item: HeaderTopListType) => (
             <Link
               className={`flex items-center text-[14px] text-[#545D6A] leading-[16.41px] ${
                 item.icon && "gap-[11px] "

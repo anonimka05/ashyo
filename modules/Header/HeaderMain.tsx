@@ -1,14 +1,18 @@
+"use client";
 import Button from "@/components/Button";
 import { ArrowIcon, MenuIcon } from "@/icons";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import Search from "./Search";
 import Actions from "./Actions";
+import { Context } from "@/context/Context";
 
 const HeaderMain = () => {
+  const { showCategory, setShowCategory } = useContext(Context);
+
   return (
-    <div className="containers !py-[27px] !pt-[64px]  sm:!py-[30px]">
+    <div className="containers !pb-[25px] !pt-[64px]  sm:!py-[30px]">
       <div className="flex items-center justify-between">
         <Link href={"/"} className="flex items-center">
           <Image
@@ -26,11 +30,14 @@ const HeaderMain = () => {
         </Link>
         <div className="hidden xl:flex items-center gap-[10px]">
           <Button
+            onClick={() => setShowCategory(true)}
             extraClass="!py-[18px]"
             type="button"
             title="Kategoriya"
             iconPosition="right"
-            icon={<ArrowIcon />}
+            icon={
+              <ArrowIcon classList={`${showCategory && "rotate-[-180deg"}`} />
+            }
           />
           <Search />
         </div>

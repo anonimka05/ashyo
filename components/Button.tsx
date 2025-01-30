@@ -13,9 +13,9 @@ const Button: React.FC<ButtonType> = ({
     <button
       onClick={onClick}
       type={type}
-      className={`${extraClass} flex items-center justify-center ${
+      className={`${extraClass} flex items-center hover:opacity-90  duration-300 justify-center ${
         title && icon && "sm:gap-[20px]"
-      }  sm:py-[14px] sm:px-[25px] rounded-[6px] hover:opacity-90 duration-300 bg-[#134E9B] text-white sm:text-[16px] font-medium leading-[18.75px]`}
+      }  sm:py-[14px] sm:px-[25px] rounded-[6px]  bg-[#134E9B] text-white sm:text-[16px] font-medium leading-[18.75px]`}
     >
       {icon && iconPosition == "left" && icon}
       <span>{title}</span>
