@@ -46,7 +46,7 @@ const CategoryNestedList = () => {
                     height: "24px",
                     color: "transparent",
                   }}
-                  src={`${IMAGE_API}/files/${item.icon}`}
+                  src={`${IMAGE_API}/${item.icon}`}
                   alt="Category icon"
                   width={24}
                   height={24}

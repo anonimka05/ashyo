@@ -1,0 +1,34 @@
+.swiper {
+  width: 100%;
+  height: 450px;
+  display: flex;
+  gap: 20px;
+}
+
+.swiper-pagiantion {
+  display: flex;
+  align-items: center;
+}
+
+.swiper-pagiantion-buller {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white !important;
+}
+
+.swiper-pagiantion-buller-active {
+  position: relative;
+  background-color: #95bef3 !important;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 640) {
+  .swiper {
+    width: 100%;
+    height: 400px;
+    display: flex;
+    gap: 10px;
+  }
+}
