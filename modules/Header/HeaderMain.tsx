@@ -18,7 +18,7 @@ const HeaderMain = () => {
           <Image
             className="scale-[1.5]"
             style={{ width: "48px", height: "48px" }}
-            src={"/ashyo.svg"}
+            src={"/logo.svg"}
             alt={"Site Logo"}
             width={48}
             height={48}
@@ -34,7 +34,7 @@ const HeaderMain = () => {
             extraClass="!py-[18px]"
             type="button"
             title="Kategoriya"
-            iconPosition="right"
+            iconPostion="right"
             icon={
               <ArrowIcon classList={`${showCategory && "rotate-[-180deg"}`} />
             }

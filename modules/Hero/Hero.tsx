@@ -35,7 +35,7 @@ const Hero = () => {
                     {item.description}
                   </p>
                   <Button
-                    extrClass="!text-[12px] !py-[12px] !w-[161px]"
+                    extraClass="!text-[12px] !py-[12px] !w-[161px]"
                     type="button"
                     title="Batafsil"
                   />
@@ -43,9 +43,11 @@ const Hero = () => {
                 <Image
                   className="w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] bottom-0 absolute sm:top-0 sm:bottom-0 sm:my-auto right-5"
                   src={`${IMAGE_API}/${item.image}`}
+                  style={{ width: "500px", height: "300px" }}
                   alt="Brand Img"
                   width={500}
                   height={300}
+                  priority
                 />
               </SwiperSlide>
             ))

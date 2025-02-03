@@ -5,9 +5,11 @@ import GetCategories from "@/service/getCategories";
 import { CategoryType } from "@/types/CategoryType";
 import { Skeleton } from "@heroui/skeleton";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React, { useContext, useState } from "react";
 
 const CategoryNestedList = () => {
+  const router = useRouter();
   const { categories } = GetCategories();
   const { showCategory, setShowCategory } = useContext(Context);
 
@@ -17,7 +19,10 @@ const CategoryNestedList = () => {
   function showCategoryChildren(data: CategoryType) {
     setNestedChild(data);
   }
-
+  function handleCategoryClick(value: number) {
+    router.push(`/category/${value}`);
+    setShowCategory(false);
+  }
   return (
     <div
       id="menu_category"
@@ -32,20 +37,17 @@ const CategoryNestedList = () => {
           showCategory ? "h-[100vh] sm:h-[570px]" : "h-0 opacity-0"
         } overflow-hidden flex  bg-white shadow-md`}
       >
-        <ul className="w-[52%] space-y-[15px] sm:space-y-0 sm:w-[35%] py-[43px] sm:py-[43px] px-[5px] sm:px-[32px] bg-[#ebeff3]">
+        <ul className="w-[52%] space-y-[15px] sm:space-y-0 sm:w-[35%] py-[13px] sm:py-[43px] px-[5px] sm:px-[32px] bg-[#ebeff3]">
           {categories.length > 0 ? (
             categories.map((item: CategoryType, index: number) => (
               <li
+                onClick={() => handleCategoryClick(item.id)}
                 onMouseEnter={() => showCategoryChildren(item)}
                 key={index}
                 className="flex cursor-pointer items-center text-[14px] hover:bg-white rounded-md duration-300 sm:text-[16px] gap-[15px] py-[8px] sm:py-[12px] pl-[10px] sm:pl-[40px]"
               >
                 <Image
-                  style={{
-                    width: "24px",
-                    height: "24px",
-                    color: "transparent",
-                  }}
+                  style={{ width: "24px", height: "24px" }}
                   src={`${IMAGE_API}/${item.icon}`}
                   alt="Category icon"
                   width={24}
@@ -70,10 +72,14 @@ const CategoryNestedList = () => {
             </div>
           )}
         </ul>
-        <ul className="w-[48%] space-y-[23px] sm:space-y-[20px] sm:w-[65%] py-[13px] sm:py-[55px] px-[22px] sm:px-[73px] bg-white">
+        <ul className="w-[48%] space-y-2 sm:space-y-[5px] sm:w-[65%] py-[13px] sm:py-[55px] px-[22px] sm:px-[73px] bg-white">
           <strong className="font-bold text-[16px]">{nestedChild.name}</strong>
           {nestedChild?.children?.map((item: CategoryType) => (
-            <li key={item.id} className="text-[14px] sm:text-[16px]">
+            <li
+              onClick={() => handleCategoryClick(item.id)}
+              key={item.id}
+              className="cursor-pointer py-[10px] pl-[5px] duration-300 rounded-md hover:bg-[#EBEFF3] text-[14px] sm:text-[16px]"
+            >
               {item?.name}
             </li>
           ))}

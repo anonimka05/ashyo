@@ -9,7 +9,7 @@ const Button: React.FC<ButtonType> = function ({
   type,
   onClick,
   isLoading,
-  loading,
+  // loading,
 }) {
   return (
     <button

@@ -76,7 +76,6 @@ function Actions() {
 
   return (
     <>
-      {" "}
       <Toaster position="top-center" reverseOrder={false}></Toaster>
       <div className="hidden sm:flex gap-[15px]">
         {actionList.map((item) => (
@@ -100,37 +99,15 @@ function Actions() {
         setOpen={setProfileModal}
       >
         <div className="flex items-center justify-center mt-[20px]">
-          {/* 
-          <Image
-            className="scale-[1.6]"
-            src={"/logoo.svg"}
-            alt="Site Logo"
-            width={50}
-            height={80}
-            priority
-          /> */}
           <Image
             style={{ width: "80px", height: "80px" }}
             className="scale-[1.6]"
-            src={"/logoo.svg"}
+            src={"/logo.svg"}
             alt="Site Logo"
             width={80}
             height={80}
             priority
           />
-          console.log(
-          {
-            <Image
-              style={{ width: "80px", height: "80px" }}
-              className="scale-[1.6]"
-              src={"/logoo.svg"}
-              alt="Site Logo"
-              width={80}
-              height={80}
-              priority
-            />
-          }
-          );
           <span className="text-[#0F4A97] font-bold text-[29px]">Ashyo</span>
         </div>
         <ul className="flex mt-2 items-center justify-center gap-5">
@@ -138,6 +115,16 @@ function Actions() {
             onClick={() => setAuthStatus("sign_in")}
             className={`cursor-pointer text-[20px] text-[#0F4A97] font-semibold border-b-[2px] ${
               authStatus == "sign_in"
+                ? "border-[#0F4A97]"
+                : "border-transparent"
+            } `}
+          >
+            Sign In
+          </li>
+          <li
+            onClick={() => setAuthStatus("sign_up")}
+            className={`cursor-pointer text-[20px] text-[#0F4A97] font-semibold border-b-[2px] ${
+              authStatus == "sign_up"
                 ? "border-[#0F4A97]"
                 : "border-transparent"
             } `}

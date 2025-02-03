@@ -2,9 +2,9 @@ import { MouseEventHandler, ReactNode } from "react";
 
 export interface ButtonType {
   icon?: ReactNode;
-  iconPostion?: "left" | "right";
+  iconPosition?: "left" | "right";
   title?: string;
-  extrClass?: string;
+  extraClass?: string;
   type: "submit" | "button";
   onClick?: MouseEventHandler<HTMLButtonElement>;
   isLoading?: boolean;
